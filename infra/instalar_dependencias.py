@@ -13,9 +13,10 @@ def instalar_dependencias():
         # Verificar se a biblioteca pode ser importada
         for lib in libs:
             try:
-                __import__(lib)
+                __import__(f"{lib}")
             except ImportError:
                 # Instalar a biblioteca se não puder ser importada
                 os.system(f"pip install -q {lib}")
+                print(f"-- Instalou {lib} --")
     else:
         print("Arquivo requirements.txt não encontrado.")
