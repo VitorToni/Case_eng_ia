@@ -19,7 +19,7 @@ def interface_grafica():
 
 
     if st.button("Coletar Dados e Consultar com Gen IA"):
-        with st.spinner("Ingestão em andamento..."):
+        with st.spinner("Consulta em andamento..."):
             ingest_dados(data_inicio, data_fim, ticker)
         st.success("Ingestão Realizada")
 
