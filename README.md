@@ -6,7 +6,7 @@ Esta presente:
 * Consumo de dados via API
 * Pipeline de ETL no DuckDB
 * Analise e visualização de dados
-* Gen IA para insights
+* Gen IA para insights (Grátis com o Google Gemini)
 * Uso de streamlit para aplicação web
 
 
