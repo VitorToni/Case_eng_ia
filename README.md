@@ -12,13 +12,15 @@ Esta presente:
 
 Estrutura:
 
+```
 Case_eng_ia/
 ├── duckdb/
 ├── infra/
-│ └── instalar_dependencias.py
-│ └── requirements.txt
+│   ├── instalar_dependencias.py
+│   └── requirements.txt
 ├── src/
-│ ├── funcs_duckdb.py
-│ ├── funcs_ia.py
-│ └── interface.py
+│   ├── funcs_duckdb.py
+│   ├── funcs_ia.py
+│   └── interface.py
 └── main.py
+```
