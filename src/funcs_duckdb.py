@@ -4,8 +4,12 @@ import duckdb
 
 
 def conectar_ao_duckdb():
-    base_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-    db_path = os.path.join(base_path, 'duckdb', 'arquivo_cotacao.db')
+    db_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'duckdb')
+    # Verifica se o diretório existe, senão, cria o diretório
+    if not os.path.exists(db_dir):
+        os.makedirs(db_dir)
+
+    db_path = os.path.join(db_dir, 'arquivo_cotacao.db')
     return duckdb.connect(database=db_path)
 
 
