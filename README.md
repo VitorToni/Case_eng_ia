@@ -5,7 +5,6 @@ Esta presente:
 * Dependências e requisitos automatizados
 * Consumo de dados via API
 * Ingestão, armazenamento e consulta com DuckDB
-* Analise e visualização de dados
 * Gen IA para insights (Grátis com o Google Gemini)
 * Uso de streamlit para aplicação web
 
