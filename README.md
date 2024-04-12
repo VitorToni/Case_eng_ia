@@ -1,6 +1,6 @@
-# Projeto Pessoal de um Engenheiro de Dados e entusiasta em IA
-Esse projeto foi criado em Abril de 2024 com o intuito de utilizar e estudar ferramentas de engenharia de dados.
-Esta presente:
+# Aplicação Completa com Análise de Ativos Utilizando Gen IA.
+Bem-vindo ao meu projeto pessoal, iniciado em abril de 2024. 
+Aqui, estou dedicando tempo para explorar e estudar ferramentas de engenharia de dados e IA, com finalidade de adquirir conhecimento.
 
 * Dependências e requisitos automatizados
 * Consumo de dados via API
