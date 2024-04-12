@@ -6,7 +6,11 @@ from src.funcs_ia import *
 
 
 def interface_grafica():
-    st.title("Projeto de Consulta e Analise de Ativos Listados na Bolsa")
+    """
+    Interface gráfica para o projeto.
+    """
+
+    st.title("Analise de Ativos Listados na Bolsa")
     col1, col2 = st.columns(2)
     with col1:
         data_inicio = st.date_input("Data de Início (Default: 10 anos)", datetime.datetime.now() - datetime.timedelta(days=365*10))
@@ -22,7 +26,7 @@ def interface_grafica():
 
     state = get_state()
 
-    if st.button("Coletar Dados e Consultar com Gen IA"):
+    if st.button("Coletar Dados"):
         with st.spinner("Consulta em andamento..."):
             ingest_dados(data_inicio, data_fim, ticker)
             state['state'] = True

@@ -1,5 +1,4 @@
 google-generativeai
-openai
 duckdb
 streamlit
 yfinance
