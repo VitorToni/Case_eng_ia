@@ -1,7 +1,7 @@
 import google.generativeai as genai
+from openai import OpenAI
 
-
-def consultar_ia(texto):
+def consultar_google(texto):
 # https://aistudio.google.com/app/apikey
     genai.configure(api_key="AIzaSyCv3og6MIKTc2lPy4HZCkkClBhvIiUwG5c")
 

@@ -1,7 +1,7 @@
 import os
 import yfinance as yf
 import duckdb
-
+import datetime
 
 def conectar_ao_duckdb():
     db_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'duckdb')
@@ -46,22 +46,47 @@ def ingest_dados(data_inicio, data_fim, tickers):
 
 
 def consultar_fechamentos(periodo):
-    substr_length = 4 if periodo == 'Ano' else 6
-
-    with conectar_ao_duckdb() as con:
-        result_set = con.execute(f"""
-                                SELECT DISTINCT
-                                    ticker,
-                                    SUBSTR(Date, 1, {substr_length}) AS {periodo},
-                                    Date,
-                                    Close
-                                FROM Base_analitica b1
-                                WHERE Date = (
-                                    SELECT MAX(Date)
-                                    FROM Base_analitica b2
-                                    WHERE b1.ticker = b2.ticker
-                                    AND SUBSTR(b1.Date, 1, {substr_length}) = SUBSTR(b2.Date, 1, {substr_length}))
-                                ORDER BY ticker, SUBSTR(Date, 1, {substr_length}) DESC
-                                """)
-        return result_set.fetch_df()
+    if periodo == "Diario":
+        data_atual = datetime.datetime.now() - datetime.timedelta(days=180)
+        data_formatada = int(data_atual.strftime('%Y%m%d'))
+        with conectar_ao_duckdb() as con:
+            result_set = con.execute(f"""
+                                    SELECT DISTINCT
+                                        ticker,
+                                        Date,
+                                        Open,
+                                        High,
+                                        Low,
+                                        Close,
+                                        Adj_Close,
+                                        Volume
+                                    FROM Base_analitica
+                                    WHERE CAST(Date as INTEGER) >= {data_formatada}
+                                    ORDER BY ticker, Date DESC
+                                    """)
+            return result_set.fetch_df()
+    else:
+        substr_length = 4 if periodo == "Anual" else 6
+        with conectar_ao_duckdb() as con:
+            result_set = con.execute(f"""
+                                    SELECT DISTINCT
+                                        ticker,
+                                        SUBSTR(Date, 1, {substr_length}) AS Date,
+                                        Open,
+                                        High,
+                                        Low,
+                                        Close,
+                                        Adj_Close,
+                                        Volume
+                                    FROM Base_analitica b1
+                                    WHERE Date = (
+                                        SELECT MAX(Date)
+                                        FROM Base_analitica b2
+                                        WHERE b1.ticker = b2.ticker
+                                        AND SUBSTR(b1.Date, 1, {substr_length}) = SUBSTR(b2.Date, 1, {substr_length}))
+                                    ORDER BY ticker, SUBSTR(Date, 1, {substr_length}) DESC
+                                    """)
+            return result_set.fetch_df()
+    
+    
     
