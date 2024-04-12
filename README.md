@@ -1,4 +1,4 @@
-# Aplicação Completa com Análise de Ativos Utilizando Gen IA.
+# Aplicação Completa com Análise de Ativos Utilizando Gen IA
 Bem-vindo ao meu projeto pessoal, iniciado em abril de 2024. 
 Aqui, estou dedicando tempo para explorar e estudar ferramentas de engenharia de dados e IA, com finalidade de adquirir conhecimento.
 
