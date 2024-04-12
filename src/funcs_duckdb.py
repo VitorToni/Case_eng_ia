@@ -12,10 +12,13 @@ def conectar_ao_duckdb():
         duckdb.Connection: Conexão com o banco de dados DuckDB.
     """
         
+    logger = logging.getLogger(__name__) 
+    logging.basicConfig(level=logging.INFO)  
     db_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'duckdb')
     # Verifica se o diretório existe, senão, cria o diretório
     if not os.path.exists(db_dir):
         os.makedirs(db_dir)
+        logger.info(f"Path Database criado: {db_dir}")
 
     db_path = os.path.join(db_dir, 'arquivo_cotacao.db')
     return duckdb.connect(database=db_path)
