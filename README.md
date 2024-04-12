@@ -1,10 +1,10 @@
 # Projeto Pessoal de um Engenheiro de Dados e entusiasta em IA
-Esse projeto foi criado em Abril de 2024 com o intuito de utilizar e estudar as MDS (Modern Data Stacks) que estão fortes no mercado, pelo menos no momento.
+Esse projeto foi criado em Abril de 2024 com o intuito de utilizar e estudar ferramentas de engenharia de dados.
 Esta presente:
 
-* Dependências e requisitos automatizados (Posteriormente migrar para o poetry)
+* Dependências e requisitos automatizados
 * Consumo de dados via API
-* Pipeline de ETL no DuckDB
+* Ingestão, armazenamento e consulta com DuckDB
 * Analise e visualização de dados
 * Gen IA para insights (Grátis com o Google Gemini)
 * Uso de streamlit para aplicação web
@@ -24,3 +24,10 @@ Case_eng_ia/
 │   └── interface.py
 └── main.py
 ```
+
+
+Melhorias mapeadas: 
+
+* Dependências com poetry
+* Logging mais robusto
+* Orquestrar com Airflow

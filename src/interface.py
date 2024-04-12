@@ -10,7 +10,7 @@ def interface_grafica():
     Interface gráfica para o projeto.
     """
 
-    st.set_page_config(page_title="Case Gen IA")
+    st.set_page_config(page_title="Eng. com Gen IA")
     st.title("Análise de Ativos Listados na Bolsa")
     col1, col2 = st.columns(2)
     with col1:
@@ -19,7 +19,7 @@ def interface_grafica():
         data_fim = st.date_input("Data de Fim (Hoje)", datetime.datetime.now())
 
     tickers_disponiveis = ["ITSA4.SA", "SANB11.SA", "BBDC4.SA", "BPAC11.SA", "BTC-USD", "ETH-USD", "AAPL", "MSFT", "AMZN", "GOOGL"]
-    ticker = st.multiselect("Ticker(s)", tickers_disponiveis, default=["AAPL", "MSFT", "AMZN", "GOOGL"])   # Seleção de um ou mais tickers
+    ticker = st.multiselect("Ticker(s)", tickers_disponiveis, default=["ITSA4.SA"])   # Seleção de um ou mais tickers
 
     @st.cache_resource
     def get_state():
@@ -51,6 +51,6 @@ def interface_grafica():
 
         with st.spinner("Consultando IA..."):
             if periodo == "Anual":  # Menos tokens, pode passar toda base
-                st.markdown(consultar_google("[Pt-br] Analise os dados a seguir e gere insights importantes como um investidor experiente: " + df.to_string()))
+                st.markdown(consultar_google("[Responda em Pt-br] Como um investido experiente, gere insights: " + df.to_string()))
             else:
-                st.markdown(consultar_google("[Pt-br] Analise os dados a seguir e gere insights importantes como um investidor experiente: " + df[["Ticker", "Date", "Close"]].to_string()))
+                st.markdown(consultar_google("[Responda em Pt-br] Como um investido experiente, gere insights: " + df[["Ticker", "Date", "Close"]].to_string()))
