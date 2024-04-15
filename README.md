@@ -30,3 +30,6 @@ Melhorias mapeadas:
 * Dependências com poetry
 * Logging mais robusto
 * Orquestrar com Airflow
+
+
+Postagem Linkedin:  https://www.linkedin.com/feed/update/urn:li:activity:7185763691269693441/
