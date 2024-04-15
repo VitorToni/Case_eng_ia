@@ -14,8 +14,9 @@ def consultar_google(texto):
     
     logger = logging.getLogger(__name__)
 
+    # Crie sua key:
     # https://aistudio.google.com/app/apikey
-    genai.configure(api_key="AIzaSyCv3og6MIKTc2lPy4HZCkkClBhvIiUwG5c")
+    genai.configure(api_key="")
 
     # Checar modelos disponiveis
     # for m in genai.list_models():
